@@ -2,6 +2,8 @@ package com.hidoni.customizableelytrafabric.recipe;
 
 import com.hidoni.customizableelytrafabric.registry.ModItems;
 import com.hidoni.customizableelytrafabric.registry.ModRecipes;
+import com.hidoni.customizableelytrafabric.util.UCRCompat;
+
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.BannerItem;
@@ -66,11 +68,12 @@ public class ElytraBannerRecipe extends SpecialCraftingRecipe {
                 } else if (inventoryItem.getItem() == Items.ELYTRA) {
                     ItemStack customizableElytraItem = new ItemStack(ModItems.CUSTOMIZABLE_ELYTRA);
                     EnchantmentHelper.set(EnchantmentHelper.get(inventoryItem), customizableElytraItem);
-                    if (elytraItem.hasCustomName()) {
+                    if (inventoryItem.hasCustomName()) {
                         customizableElytraItem.setCustomName(inventoryItem.getName());
                     }
                     customizableElytraItem.setDamage(inventoryItem.getDamage());
                     customizableElytraItem.setRepairCost(inventoryItem.getRepairCost());
+                    UCRCompat.copyUpgradeInfo(inventoryItem, customizableElytraItem);
                     elytraItem = customizableElytraItem;
                 } else if (inventoryItem.getItem() == ModItems.CUSTOMIZABLE_ELYTRA || inventoryItem.getItem() == ModItems.ELYTRA_WING) {
                     elytraItem = inventoryItem.copy();

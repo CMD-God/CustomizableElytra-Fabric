@@ -1,8 +1,9 @@
 package com.hidoni.customizableelytrafabric.recipe;
 
-import com.google.common.collect.Maps;
 import com.hidoni.customizableelytrafabric.registry.ModItems;
 import com.hidoni.customizableelytrafabric.registry.ModRecipes;
+import com.hidoni.customizableelytrafabric.util.UCRCompat;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.inventory.CraftingInventory;
@@ -89,6 +90,9 @@ public class ElytraWingCombinationRecipe extends SpecialCraftingRecipe {
             wingInfo.put("right", rightWingNBT);
         }
         customizedElytra.setSubNbt("WingInfo", wingInfo);
+        if (!UCRCompat.copyUpgradeInfo(leftWing, customizedElytra)) {
+            UCRCompat.copyUpgradeInfo(rightWing, customizedElytra);
+        }
         return customizedElytra;
     }
 

@@ -3,6 +3,8 @@ package com.hidoni.customizableelytrafabric.recipe;
 import com.google.common.collect.Lists;
 import com.hidoni.customizableelytrafabric.registry.ModItems;
 import com.hidoni.customizableelytrafabric.registry.ModRecipes;
+import com.hidoni.customizableelytrafabric.util.UCRCompat;
+
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.DyeItem;
@@ -79,6 +81,7 @@ public class ElytraDyeRecipe extends SpecialCraftingRecipe {
         }
         customizableElytraItem.setDamage(elytraItem.getDamage());
         customizableElytraItem.setRepairCost(elytraItem.getRepairCost());
+        UCRCompat.copyUpgradeInfo(elytraItem, customizableElytraItem);
         return !elytraItem.isEmpty() && !list.isEmpty() ? DyeableItem.blendAndSetColor(customizableElytraItem, list) : ItemStack.EMPTY;
     }
 

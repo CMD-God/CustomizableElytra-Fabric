@@ -2,6 +2,8 @@ package com.hidoni.customizableelytrafabric.recipe;
 
 import com.hidoni.customizableelytrafabric.registry.ModItems;
 import com.hidoni.customizableelytrafabric.registry.ModRecipes;
+import com.hidoni.customizableelytrafabric.util.UCRCompat;
+
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.ItemStack;
@@ -72,6 +74,7 @@ public class ElytraWingGlowRecipe extends SpecialCraftingRecipe {
                     }
                     customizableElytraItem.setDamage(inventoryItem.getDamage());
                     customizableElytraItem.setRepairCost(inventoryItem.getRepairCost());
+                    UCRCompat.copyUpgradeInfo(inventoryItem, customizableElytraItem);
                     elytraItem = customizableElytraItem;
                 } else if (inventoryItem.getItem() == ModItems.CUSTOMIZABLE_ELYTRA || inventoryItem.getItem() == ModItems.ELYTRA_WING) {
                     if (!elytraItem.isEmpty()) {
