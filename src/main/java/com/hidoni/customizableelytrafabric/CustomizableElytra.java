@@ -1,6 +1,5 @@
 package com.hidoni.customizableelytrafabric;
 
-import com.hidoni.customizableelytrafabric.integration.trinkets.TrinketsIntegration;
 import com.hidoni.customizableelytrafabric.registry.ModItems;
 import com.hidoni.customizableelytrafabric.registry.ModRecipes;
 import net.fabricmc.api.ModInitializer;
@@ -14,11 +13,7 @@ public class CustomizableElytra implements ModInitializer {
     @Override
     public void onInitialize() {
         caleusLoaded = FabricLoader.getInstance().isModLoaded("caelus");
-        trinketsLoaded = FabricLoader.getInstance().isModLoaded("trinkets");
         ModItems.register();
         ModRecipes.register();
-        if (trinketsLoaded) {
-            TrinketsIntegration.register_trinkets();
-        }
     }
 }

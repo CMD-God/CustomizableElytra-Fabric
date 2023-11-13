@@ -89,5 +89,5 @@ loom {
 }
 
 dependencies {
-    modImplementation "dev.emi:trinkets:${trinkets_version}"
+    //modImplementation "dev.emi:trinkets:${trinkets_version}"
 }
