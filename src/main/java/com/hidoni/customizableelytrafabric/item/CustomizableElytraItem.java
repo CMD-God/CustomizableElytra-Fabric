@@ -94,6 +94,7 @@ public class CustomizableElytraItem extends ElytraItem implements DyeableItem, F
                 }
             }
         }
+        super.appendTooltip(stack, world, tooltip, context);
     }
 
     @Override

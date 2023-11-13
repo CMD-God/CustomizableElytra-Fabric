@@ -50,5 +50,6 @@ public class ElytraWingItem extends Item implements DyeableItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         CustomizableElytraItem.applyTooltip(tooltip, context, stack.getOrCreateNbt(), true);
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }
